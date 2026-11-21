@@ -265,7 +265,12 @@ h2 span, h1 span{ color: var(--gold); }
   max-width: 900px;
   margin: 0 auto;
 }
-.promo-box-hor p{ font-size: 1.1em; font-weight: 300; margin-top: 16px; }
+.promo-box-hor p{
+  font-size: 1.1em;
+  font-weight: 300;
+  max-width: 900px;
+  margin: 16px auto 0;
+}
 
 .promo-box-ver-module{ background-color: var(--dark-bg); color: var(--light-text); }
 .promo-box-ver p{

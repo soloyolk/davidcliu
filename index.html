@@ -75,8 +75,8 @@
   <section id="quote1" class="module promo-box-hor-module">
     <div class="container">
       <div class="promo-box-hor">
-        <h2>"Technology and business have become impossible to talk about separately."</h2>
-        <p>&ndash; Bill Gates (paraphrased)</p>
+        <h2>"Information technology and business are becoming inextricably interwoven. I don't think anybody can talk meaningfully about one without the talking about the other."</h2>
+        <p>&ndash; Bill Gates</p>
       </div>
     </div>
   </section>
@@ -168,7 +168,7 @@
   <section id="work-experience" class="module promo-box-ver-module">
     <div class="container">
       <div class="promo-box-ver text-center">
-        <p>"Technology's greatest gift is empowering people to create and learn." &ndash; Steve Ballmer (paraphrased)</p>
+        <p>"The number one benefit of information technology is that it empowers people to do what they want to do. It lets people be creative. It lets people be productive. It lets people learn things they didn't think they could learn before, and so in a sense it is all about potential." &ndash; Steve Ballmer</p>
       </div>
     </div>
   </section>
@@ -292,11 +292,16 @@
   <div class="social-link">
     <ul id="menu-social" class="menu">
       <li><a href="https://www.linkedin.com/in/davidcliu/" target="_blank" rel="noopener"><i class="fa fa-linkedin-square"></i></a></li>
-      <li><a href="https://www.yelp.com/user_details?userid=GhWh8jxvYGIK-6tanHWXDg" target="_blank" rel="noopener"><i class="fa fa-yelp"></i></a></li>
-      <li><a href="https://twitter.com/dliunatic" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
     </ul>
   </div>
-  <div class="site-info">Copyrights &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved.</div>
+  <div class="site-info">
+  Copyrights &copy; <span id="copyright-year"></span> All Rights Reserved.
+</div>
+
+<script>
+  document.getElementById("copyright-year").textContent = new Date().getFullYear();
+</script>
+
 </footer>
 
 <div id="go-to-top" class="go-to-top btn btn-light" aria-label="Go to top"><i class="fa fa-angle-up"></i></div>

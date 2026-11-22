@@ -63,8 +63,8 @@ document.getElementById('slider-arrow-left').addEventListener('click', () => { p
 startAutoplay();
 
 // ---------- Count-up stats + skill bar fill on scroll into view ----------
-const countEls = document.querySelectorAll('.fact-number, .bar-timer');
-const barEls = document.querySelectorAll('.line-active');
+const countEls = document.querySelectorAll('.fact-number');
+const barEls = [];
 
 function animateCount(el) {
   const to = parseInt(el.dataset.to, 10) || 0;
@@ -119,3 +119,33 @@ contactForm.addEventListener('submit', (e) => {
   window.location.href = mailto;
   resultEl.textContent = 'Opening your email client…';
 });
+
+
+// ---------- Scroll reveal ----------
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries, obs) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach((el) => revealObserver.observe(el));
+
+// ---------- Active section tracking in the nav ----------
+const navLinks = Array.from(document.querySelectorAll('#primary-menu a'));
+const sectionMap = new Map();
+navLinks.forEach((a) => {
+  const sec = document.getElementById(a.getAttribute('href').slice(1));
+  if (sec) sectionMap.set(sec, a);
+});
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      navLinks.forEach((a) => a.classList.remove('is-active'));
+      sectionMap.get(entry.target).classList.add('is-active');
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sectionMap.forEach((_, sec) => navObserver.observe(sec));
